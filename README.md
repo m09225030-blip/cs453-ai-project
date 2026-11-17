@@ -1,39 +1,58 @@
-# CS453 - Individual AI Project: After-Hours Cleaning Robot
+CS453 - Individual AI Project: After-Hours Cleaning Robot
 
-**Name:** إنتصار محمد معيتيق
-**Student ID:** 09225030
-**Project:** After-Hours Cleaning Robot
-**Variant:** ('B', 'E')
-**Closed road:** F
-**Room to clean:** S -> A -> C -> F (3 حركات)
+Name: إنتصار محمد معيتيق
+Student ID: 09225030
+Project: After-Hours Cleaning Robot
+Variant: 1
+Closed road: B – E
+Target room: F
+Route to clean: S → A → C → F (3 moves)
 
-## What this project does
+What this project does
 
-A cleaning robot starts at location S on a small campus map (8 locations, one road closed in each student's variant). It must reach its assigned room and clean it. The project models the task (PEAS, state, actions, costs), simulates it, and finds the route with two search algorithms:
+A cleaning robot starts at location S on a small campus map containing 8 locations. One road is closed according to the student's assigned variant. The robot must reach its assigned target room F and clean it.
 
-- **BFS** (uninformed): finds a route with the fewest moves.
-- **A\*** (informed): uses the supplied heuristic table, which is admissible on the assigned map, and finds a route with the same number of moves.
+The project models the task using PEAS, state representation, actions, transitions, and costs. It then simulates the robot's mission using two search algorithms:
 
-The simulator then executes the route and the `clean` action and checks that the task is complete.
+- BFS (Breadth-First Search): An uninformed search algorithm that finds a route with the fewest moves.
+- A Search:* An informed search algorithm that uses a heuristic to guide the search toward the goal.
 
-## Files
+Both algorithms find a route with the same minimum number of moves on the assigned map.
 
-- `project.ipynb` - the full notebook: Tasks 1, 2, 4, 5, 6, 10 and 11.
-- `README.md` - this file.
+The simulator executes the route, performs the cleaning action, and verifies that the task is complete.
 
-## Dependencies
+Files
 
-Python 3 and its standard library only (`copy`, `collections`, `heapq`, `platform`). No installs, GPU, API keys or physical robot are needed.
+- "project.ipynb" – The complete notebook containing the project implementation and explanations.
+- "README.md" – Project description and instructions.
 
-## How to run
+Dependencies
 
-1. Open `project.ipynb` in Google Colab (File > Open notebook > GitHub, or download it and upload it to Colab).
-2. In the first code cell, set `STUDENT_ID = "..."` to your ID as text, keeping leading zeros.
-3. Choose **Runtime > Restart session and run all**.
-4. Check the output of Task 5 (BFS) and Task 6 (A*): the route, the `clean` action, and `Task complete: True`.
+Python 3 and its standard library only:
 
-Colab link: [paste the link to project.ipynb in YOUR repository]
+- copy
+- collections
+- heapq
+- platform
 
-## Sources and AI assistance
+No additional installations, GPU, API keys, or physical robot are required.
 
-The map, variant helper and heuristic tables come from the CS453 two-week project workbook. I used an AI assistant (Claude) to help draft the explanations and the code; I checked it by reading and explaining each function and by running the edge-case tests in the notebook. Details are in Section 10 of the notebook.
+How to run
+
+1. Open "project.ipynb" in Google Colab.
+2. Check that "STUDENT_ID" is set to ""09225030"", preserving the leading zero.
+3. Select Runtime → Restart session and run all.
+4. Check the BFS and A* outputs.
+5. Verify that the robot reaches room F, performs the cleaning action, and displays "Task complete: True".
+
+Sources and AI assistance
+
+The reference graph, variant helper, and heuristic tables are provided by the CS453 two-week project workbook.
+
+AI assistance was used to help draft explanations and develop parts of the implementation. The code was reviewed and tested using the provided edge cases, including start equals goal, unreachable goals, invalid locations, and illegal or repeated cleaning actions.
+
+The BFS and A* implementations were checked by comparing their minimum route costs and verifying the heuristic's admissibility and consistency on the assigned map.
+
+Colab link
+
+https://colab.research.google.com/github/m09225030-blip/-/blob/master/project.ipynb
